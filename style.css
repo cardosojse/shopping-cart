@@ -112,3 +112,6 @@ header .shop-bag span{
 .active .shop-cart{
     left: calc(100% - 400px);
 }
+.active .container{
+    transform: translateX(-200%);
+}
