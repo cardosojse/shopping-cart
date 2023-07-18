@@ -72,34 +72,3 @@ function initApp(){
     })
 }
 initApp();
-
-function addToCart(key){
-    if (listCarts == null){
-        listCarts[key] = products[key];
-        listCarts[key].quantProd = 1;
-    }
-    reloadCart();
-}
-
-function reloadCart(){
-    foodList.innerHTML = '';
-    let count = 0;
-    let totalPrice = 0;
-
-    listCarts.forEach((value, key) => {
-        totalPrice += value.price;
-        count += value.quantProd;
-        if (value != null){
-            let newDiv = document.createElement('li');
-            newDiv.innerHTML = `
-                <div><img src="${value.img}/></div>
-                <div>${value.name}</div>
-                <div>${value.price}</div>
-                <div>${value.quantProd}</div>
-            `;
-            foodList.appendChild(newDiv);
-        }
-    })
-    totalSpend.innerText = totalPrice;
-    quantProd.innerText = count;
-}
